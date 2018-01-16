@@ -7,7 +7,7 @@ public class PluginMain implements IModule{
 	private String moduleMinimumVersion = "2.3.0";
 	private String author = "MaxDistructo";
 	public static IDiscordClient client;
-  public static EventDispatcher dispatcher;
+  	public static EventDispatcher dispatcher;
 	
 	public void disable() {
 		
