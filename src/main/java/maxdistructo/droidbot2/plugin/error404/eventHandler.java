@@ -1,5 +1,7 @@
 package maxdistructo.droidbot2.plugin.error404
 
+import maxdistructo.droidbot2.core.*;
+
 public class eventHandler{
 
 
@@ -10,7 +12,7 @@ IMessage message = event.getMessage();
 IUser author = message.getAuthor();
 IGuild guild = message.getGuild();
 Object[] messageContent = message.getContent().split(" ");
-String prefix = Config.readPrefix();
+String prefix = Client.prefix;
 
 if(guild.getName().equals("Error 404 - Name Not Found")){
 
