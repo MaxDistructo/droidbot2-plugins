@@ -1,4 +1,4 @@
-package maxdistructo.droidbot2.commands;
+package maxdistructo.droidbot2.commands.casino;
 
 public class PluginCasino implements IModule{
 
