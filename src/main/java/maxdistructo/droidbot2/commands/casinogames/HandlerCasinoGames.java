@@ -1,5 +1,6 @@
 package maxdistructo.droidbot2.commands.casinogames;
 
+import static maxdistructo.droidbot2.commands.casinogames.ModuleCasinoGames.prefix;
 
 public class HandlerCasinoGames{
 
