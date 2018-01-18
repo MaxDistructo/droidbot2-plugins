@@ -14,6 +14,11 @@ public class ModuleCasino implements IModule{
 	}
 
 	public boolean enable(IDiscordClient dclient) {
+		try {
+ 			Class.forName( "maxdistructo.droidbot2.core.Utils" ); //Checks for droidbot2-core to be in classpath
+		} catch( ClassNotFoundException e ) {
+			return false;
+		}
 		client = dclient;
 		dispatcher = client.getDispatcher();
 		dispatcher.registerListener(new MessageHandler());
