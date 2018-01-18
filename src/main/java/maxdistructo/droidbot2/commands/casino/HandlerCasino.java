@@ -1,6 +1,6 @@
 package maxdistructo.droidbot2.commands.casino;
 
-public class CasinoHandler{
+public class HandlerCasino{
 
 public static void onMessageRecievedEvent(MessageRecievedEvent event){
        IMessage message = event.getMessage();
