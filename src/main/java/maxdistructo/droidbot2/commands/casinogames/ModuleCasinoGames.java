@@ -8,6 +8,7 @@ public class ModuleCasinoGames implements IModule{
 	private String author = "MaxDistructo";
 	public static IDiscordClient client;
   	public static EventDispatcher dispatcher;
+	public static String prefix;
 	
 	public void disable() {
 		
@@ -16,10 +17,11 @@ public class ModuleCasinoGames implements IModule{
 	public boolean enable(IDiscordClient dclient) {
     try {
       Class.forName( "maxdistructo.droidbot2.commands.casino.ModuleCasino"); //Require Base Casino Module
-      Class.forName( "maxdistructo.droidbot2.core.Utils"); //Require droidbot2-core (Shall be repackaged as a module as well)
+      Class.forName( "maxdistructo.droidbot2.core.ModuleDroidBot2Core"); //Require droidbot2-core (Shall be repackaged as a module as well)
     } catch( ClassNotFoundException e ) {
       return false;
-    }
+    }	
+		prefix = Utils.readPrefix();
 		client = dclient;
 		dispatcher = client.getDispatcher();
 		dispatcher.registerListener(new MessageHandler());
