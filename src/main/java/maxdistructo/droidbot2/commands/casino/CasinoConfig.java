@@ -1,7 +1,5 @@
 package maxdistructo.droidbot2.commands.casino;
 
-import maxdistructo.droidbot2.BaseBot;
-import maxdistructo.droidbot2.background.Listener;
 import maxdistructo.droidbot2.core.message.Message;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -45,8 +43,7 @@ public class CasinoConfig {
             System.out.println("Successfully Copied JSON Object to File...");
             System.out.println("\nJSON Object: " + newUser);
         } catch (IOException e) {
-            BaseBot.LOGGER.warn("Config.newCasino Error.");
-            Message.sendDM(BaseBot.client.getApplicationOwner(), e.toString());
+            Message.throwError(e, message);
             e.printStackTrace();
         }
 
@@ -72,9 +69,7 @@ public class CasinoConfig {
             System.out.println("Successfully Copied JSON Object to File...");
             System.out.println("\nJSON Object: " + newUser);
         } catch (IOException e) {
-            BaseBot.LOGGER.warn("Config.newCasino Error.");
-            Message.sendDM(BaseBot.client.getApplicationOwner(), e.toString());
-            e.printStackTrace();
+            Message.throwError(e, message);
         }
 
     }
@@ -92,8 +87,7 @@ public class CasinoConfig {
                 tokener = new JSONTokener(uri.toURL().openStream());
                 System.out.println("Successfully read file " + stringUser + ".txt");
             } catch (IOException e) {
-                Message.sendDM(BaseBot.client.getApplicationOwner(), e.toString());
-                e.printStackTrace();
+                Message.throwError(e, message);
             }
             JSONObject root = new JSONObject(tokener);
             System.out.println("Converted JSON file to JSONObject");
@@ -102,7 +96,7 @@ public class CasinoConfig {
             return casinoValues;
         }
         else{
-            Casino.onCasinoCommand(new Object[] {Listener.prefix + "casino", "join"},message,null);
+            Casino.onCasinoCommand(new Object[] {ModuleCasino.prefix + "casino", "join"},message,null);
         }
         return null;
     }
@@ -120,8 +114,7 @@ public class CasinoConfig {
                 tokener = new JSONTokener(uri.toURL().openStream());
                 System.out.println("Successfully read file " + stringUser + ".txt");
             } catch (IOException e) {
-                Message.sendDM(BaseBot.client.getApplicationOwner(), e.toString());
-                e.printStackTrace();
+                Message.throwError(e, message);
             }
             JSONObject root = new JSONObject(tokener);
             System.out.println("Converted JSON file to JSONObject");
@@ -132,7 +125,7 @@ public class CasinoConfig {
         }
         else{
             newCasino(user,guild);
-            // Casino.onCasinoCommand(new Object[] {Listener.prefix + "casino", "join"}, message,null);
+            // Casino.onCasinoCommand(new Object[] {.prefix + "casino", "join"}, message,null);
         }
 
     }
@@ -149,8 +142,7 @@ public class CasinoConfig {
             tokener = new JSONTokener(uri.toURL().openStream());
             System.out.println("Successfully read file " + stringUser + ".txt");
         } catch (IOException e) {
-            Message.sendDM(BaseBot.client.getApplicationOwner(), e.toString());
-            e.printStackTrace();
+            Message.throwError(e, message);
         }
         JSONObject newUser = new JSONObject(tokener);
         newUser.put("User", PLAYER);
@@ -177,8 +169,7 @@ public class CasinoConfig {
             tokener = new JSONTokener(uri.toURL().openStream());
             System.out.println("Successfully read file " + stringUser + ".txt");
         } catch (IOException e) {
-            Message.sendDM(BaseBot.client.getApplicationOwner(), e.toString());
-            e.printStackTrace();
+            Message.throwError(e, message);
         }
         JSONObject newUser = new JSONObject(tokener);
         newUser.put("User", PLAYER);
@@ -190,8 +181,7 @@ public class CasinoConfig {
             System.out.println("Successfully Copied JSON Object to File...");
             System.out.println("\nJSON Object: " + newUser);
         } catch (IOException e) {
-            Message.sendDM(BaseBot.client.getApplicationOwner(), e.toString());
-            e.printStackTrace();
+            Message.throwError(e, message);
         }
     }
     public static void resetBJ(IMessage message){
@@ -215,8 +205,7 @@ public class CasinoConfig {
             System.out.println("Successfully Copied JSON Object to File...");
             System.out.println("\nJSON Object: " + root);
         } catch (IOException e) {
-            Message.sendDM(BaseBot.client.getApplicationOwner(), e.toString());
-            e.printStackTrace();
+            Message.throwError(e, message);
         }
 
     }
@@ -233,8 +222,7 @@ public class CasinoConfig {
             tokener = new JSONTokener(uri.toURL().openStream());
             System.out.println("Successfully read file " + stringUser + ".txt");
         } catch (IOException e) {
-            Message.sendDM(BaseBot.client.getApplicationOwner(), e.toString());
-            e.printStackTrace();
+            Message.throwError(e, message);
         }
         return new JSONObject(tokener);
     }
