@@ -1,10 +1,10 @@
 package maxdistructo.droidbot2.commands.casino;
 
-public class PluginCasino implements IModule{
+public class ModuleCasino implements IModule{
 
-	private String moduleName = "Error 404 - Name Not Found/Custom Commands";
+	private String moduleName = "Casino";
 	private String moduleVersion = "1.0";
-	private String moduleMinimumVersion = "2.3.0";
+	private String moduleMinimumVersion = "2.9.0";
 	private String author = "MaxDistructo";
 	public static IDiscordClient client;
   	public static EventDispatcher dispatcher;
