@@ -17,7 +17,7 @@ public class ModuleCasino implements IModule{
 	public boolean enable(IDiscordClient dclient) {
 		try {
  			Class.forName( "maxdistructo.droidbot2.core.ModuleDroidBot2Core" ); //Checks for droidbot2-core to be in classpath
-			Utils.readPrefix(); //Require config file for prefix
+			prefix = Utils.readPrefix(); //Require config file for prefix
 		} catch( Exception e ) {
 			e.printStackTrace();
 			return false;
