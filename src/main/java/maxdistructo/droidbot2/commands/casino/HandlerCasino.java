@@ -1,5 +1,7 @@
 package maxdistructo.droidbot2.commands.casino;
 
+import static maxdistructo.droidbot2.commands.casino.ModuleCasino.prefix;
+
 public class HandlerCasino{
 
 public static void onMessageRecievedEvent(MessageRecievedEvent event){
