@@ -26,7 +26,15 @@ if(messageContent[0].equals(prefix + "request")){
 }
   else if(messageContent[0].equals(prefix + "report")){
     Message.sendDM(author, "User " + Utils.getMentionedUser(message).getName() + "#" + Utils.getMentionedUser(message).getDiscrim() + " has been sucessfully reported for " Utils.makeNewString(messageContent, 3) + ". If you abuse this system, you may be banned from using it. If this was a mistake, please use !modmail \"Sorry but my last report is a mistake\" or something of the like.");
-    Message.sendMessage(report, "User " + author.getName() + "#" + author.getDiscrim() + " has reported " + Utils.getMentionedUser(message).getName() + "#" + Utils.getMentionedUser(message).getDiscrim() + "for " + Utils.makeNewString(messageContent, 3));
+    List<IMessage.Attachment> attachments = null;
+    attachments = message.getAttachements();
+    if(attachments = null){
+      Message.sendMessage(report, "User " + author.getName() + "#" + author.getDiscrim() + " has reported " + Utils.getMentionedUser(message).getName() + "#" + Utils.getMentionedUser(message).getDiscrim() + "for " + Utils.makeNewString(messageContent, 3));
+    }
+    else{
+      Message.sendMessage(report, "User " + author.getName() + "#" + author.getDiscrim() + " has reported " + Utils.getMentionedUser(message).getName() + "#" + Utils.getMentionedUser(message).getDiscrim() + "for " + Utils.makeNewString(messageContent, 3) + attachments.get(0).getUrl());
+    }
+    
     message.delete();
   }
   else if(messageContent[0].equals(prefix + "modmail")){
