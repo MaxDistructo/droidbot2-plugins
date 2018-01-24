@@ -2,7 +2,10 @@ package maxdistructo.droidbot2.commands.playerfun;
 
 public class ListenerPlayerFun{
 
-public static void onMessageRecieed(MessageRecievedEvent event){
+public static void onMessageRecieved(MessageRecievedEvent event){
+  
+            IMessage message = event.getMessage();
+            IUser mentioned = Utils.getMentionedUser(message);
 
                   if (messageContent[0].equals(prefix + "slap")) {
                     Message.sendMessage(message.getChannel(), PlayerFun.onSlapCommand(message, mentioned));
